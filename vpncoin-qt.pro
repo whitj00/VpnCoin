@@ -6,6 +6,24 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE USE_CRYPT USE_IPV
 CONFIG += no_include_pwd
 CONFIG += thread
 
+    BOOST_LIB_SUFFIX=-mt
+    BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.57.0/include
+    BOOST_LIB_PATH=/usr/local/Cellar/boost/1.57.0/lib
+
+    BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include
+    BDB_LIB_PATH=/usr/local/Cellar/berkeley-db4/4.8.30/lib
+
+    OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
+    OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib
+
+    MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
+    MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/lib
+
+    QRENCODE_INCLUDE_PATH=/usr/local/opt/qrencode/include
+    QRENCODE_LIB_PATH=/usr/local/opt/qrencode/lib
+
+    DEFINES += IS_ARCH_64
+
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
@@ -162,17 +180,6 @@ HEADERS += src/qt/bitcoingui.h \
     src/kernel.h \
     src/scrypt.h \
     src/pbkdf2.h \
-    src/zerocoin/Accumulator.h \
-    src/zerocoin/AccumulatorProofOfKnowledge.h \
-    src/zerocoin/Coin.h \
-    src/zerocoin/CoinSpend.h \
-    src/zerocoin/Commitment.h \
-    src/zerocoin/ParamGeneration.h \
-    src/zerocoin/Params.h \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.h \
-    src/zerocoin/SpendMetaData.h \
-    src/zerocoin/ZeroTest.h \
-    src/zerocoin/Zerocoin.h \
     src/serialize.h \
     src/strlcpy.h \
     src/main.h \
@@ -299,16 +306,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
-    src/zerocoin/Accumulator.cpp \
-    src/zerocoin/AccumulatorProofOfKnowledge.cpp \
-    src/zerocoin/Coin.cpp \
-    src/zerocoin/CoinSpend.cpp \
-    src/zerocoin/Commitment.cpp \
-    src/zerocoin/ParamGeneration.cpp \
-    src/zerocoin/Params.cpp \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.cpp \
-    src/zerocoin/SpendMetaData.cpp \
-    src/zerocoin/ZeroTest.cpp \
 	src/qt/simplecrypt.cpp \
 	src/qt/splashscreen.cpp
 
